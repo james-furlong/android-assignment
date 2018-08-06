@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.StopwatchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_dark">
+
+        <Chronometer
+            android:id="@+id/stopwatch_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:textColor="@color/blue_light"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+        <LinearLayout
+            android:id="@+id/digital_clock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="40dp"
+            android:weightSum="7"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/time_number_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/time_divider_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/time_number_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/time_divider_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/time_number_seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/time_divider_seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="."
+                android:textColor="@color/blue_light"
+                android:textSize="60sp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/time_number_milliseconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="60sp"
+                android:textColor="@color/blue_light"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/spacer_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/stopwatch_chronometer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            />
+
+        <Button
+            android:id="@+id/stopwatch_start_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_toStartOf="@+id/spacer_image_view"
+            android:layout_below="@+id/stopwatch_chronometer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/circle_button_blue_light"
+            android:text="Start"
+            android:textColor="@color/blue_darkest"
+            android:onClick="startStopwatch"
+            />
+
+        <Button
+            android:id="@+id/stopwatch_stop_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_toEndOf="@+id/spacer_image_view"
+            android:layout_below="@+id/stopwatch_chronometer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/circle_button_blue_light"
+            android:text="Stop"
+            android:textColor="@color/blue_darkest"
+            android:onClick="stopClearStopwatch"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="47dp"
+            android:weightSum="5">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/world_text"/>
+
+                    <TextView
+                        android:id="@+id/world_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="World"
+                        android:textSize="10dp"
+                        android:textAlignment="center"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/world_button"
+                    android:tag="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/alarm_text"/>
+
+                    <TextView
+                        android:id="@+id/alarm_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="Alarm"
+                        android:textSize="10dp"
+                        android:textAlignment="center"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/alarm_button"
+                    android:tag="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/clock_text"/>
+
+                    <TextView
+                        android:id="@+id/clock_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="Clock"
+                        android:textSize="10dp"
+                        android:textAlignment="center"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/clock_button"
+                    android:tag="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/stopwatch_text"/>
+
+                    <TextView
+                        android:id="@+id/stopwatch_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="Stopwatch"
+                        android:textSize="10dp"
+                        android:textAlignment="center"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/stopwatch_button"
+                    android:tag="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/settings_text"/>
+
+                    <TextView
+                        android:id="@+id/settings_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="Settings"
+                        android:textSize="10dp"
+                        android:textAlignment="center"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/settings_button"
+                    android:tag="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
